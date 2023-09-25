@@ -25,16 +25,24 @@ spec:
               image: {{ .Values.image.repository }}:{{ default .Values.global.appVersion .Values.image.tag }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               env:
+                - name: LOG_LEVEL
+                  value: {{ .Values.discovery.logLevel | quote }}
+
                 - name: SLS_URL
                   value: "http://cray-sls"
                 - name: HSM_URL
                   value: "http://cray-smd"
+
                 - name: DISCOVER_RIVER
-                  value: "true"
+                  value: {{ .Values.discovery.discoverRiverWithDHCP | quote }}
                 - name: DISCOVER_MOUNTAIN
-                  value: "true"
-                - name: BOOT_NEW_RIVER_NODES
-                  value: "false"
+                  value: {{ .Values.discovery.discoverMountain | quote }}
+                - name: DISCOVER_MANAGEMENT_NODES
+                  value: {{ .Values.discovery.discoverManagementNodes | quote }}
+                - name: DISCOVER_MANAGEMENT_VIRTUAL_NODES
+                  value: {{ .Values.discovery.discoverManagementVirtualNodes | quote }}
+                - name: REDISCOVER_FAILED_REDFISH_ENDPOINTS
+                  value: {{ .Values.discovery.rediscoverFailedRedfishEndpoints | quote }}
 
                 - name: VAULT_ADDR
                   value: "http://cray-vault.vault:8200"
