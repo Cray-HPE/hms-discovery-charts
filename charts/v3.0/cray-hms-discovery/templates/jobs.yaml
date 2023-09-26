@@ -1,13 +1,16 @@
+{{- if .Values.vaultLoader.enabled }}
 ---
 apiVersion: batch/v1
 kind:       Job
 metadata:
   name: hms-discovery-vault-loader-{{ .Release.Revision }}
+  labels:
+    app: hms-discovery-vault-loader
 spec:
   template:
     metadata:
-        labels:
-            app: hms-discovery-vault-loader
+      labels:
+        app: hms-discovery-vault-loader
     spec:
       restartPolicy: OnFailure
       serviceAccountName: "jobs-watcher"
@@ -30,3 +33,4 @@ spec:
                   key: vault_switch_defaults
           image: {{ .Values.image.repository }}:{{ .Values.global.appVersion }}
           command: ["vault_loader"]
+{{- end -}}

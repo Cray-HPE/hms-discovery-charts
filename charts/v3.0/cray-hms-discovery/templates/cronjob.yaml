@@ -43,6 +43,8 @@ spec:
                   value: {{ .Values.discovery.discoverManagementVirtualNodes | quote }}
                 - name: REDISCOVER_FAILED_REDFISH_ENDPOINTS
                   value: {{ .Values.discovery.rediscoverFailedRedfishEndpoints | quote }}
+                - name: POPULATE_MANAGEMENT_SWITCH_CREDENTIALS
+                  value: {{ .Values.discovery.populateManagementSwitchCredentials | quote }}
 
                 - name: VAULT_ADDR
                   value: "http://cray-vault.vault:8200"

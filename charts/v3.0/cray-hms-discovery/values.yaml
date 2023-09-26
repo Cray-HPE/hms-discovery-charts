@@ -30,7 +30,7 @@ discovery:
   rediscoverFailedRedfishEndpoints: true
 
   # Populate Vault (secrets/hms-creds/) with per-switch credentials
-  managementSwitchCredentials: true
+  populateManagementSwitchCredentials: true
 
 # Sealed secrets from customizations.yaml
 sealedSecrets: []
