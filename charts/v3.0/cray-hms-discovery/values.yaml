@@ -12,12 +12,12 @@ vaultLoader:
   enabled: true
 
 discovery:
-  logLevel: INFO # PANIC, FATAL, ERROR, WARN, INFO, or DEBUG
+  logLevel: INFO  # PANIC, FATAL, ERROR, WARN, INFO, or DEBUG
 
   # Power on mountain chassis slots that are off.
   discoverMountain: true
 
-  # Identify unknown River BMCs that have been given a IP, and inform HSM. 
+  # Identify unknown River BMCs that have been given a IP, and inform HSM.
   discoverRiverWithDHCP: true
 
   # Populate HSM with Management Node data form SLS
