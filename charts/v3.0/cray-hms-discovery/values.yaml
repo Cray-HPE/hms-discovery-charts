@@ -34,3 +34,4 @@ discovery:
 
 # Sealed secrets from customizations.yaml
 sealedSecrets: []
+
