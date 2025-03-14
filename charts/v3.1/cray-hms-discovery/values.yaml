@@ -1,0 +1,36 @@
+---
+
+global:
+  appVersion: 1.18.0
+
+image:
+  repository: artifactory.algol60.net/csm-docker/stable/hms-discovery
+  pullPolicy: IfNotPresent
+
+vaultLoader:
+  # Populate Vault (secrets/reds-creds) with system default River and SNMP credentials
+  enabled: true
+
+discovery:
+  logLevel: INFO  # PANIC, FATAL, ERROR, WARN, INFO, or DEBUG
+
+  # Power on mountain chassis slots that are off.
+  discoverMountain: true
+
+  # Identify unknown River BMCs that have been given a IP, and inform HSM.
+  discoverRiverWithDHCP: true
+
+  # Populate HSM with Management Node data form SLS
+  discoverManagementNodes: true
+
+  # Populate HSM with Management Virtual Node data form SLS
+  discoverManagementVirtualNodes: true
+
+  # Trigger a rediscover in HSM on redfish endpoints not in DiscoveryStarted/DiscoverStarted
+  rediscoverFailedRedfishEndpoints: true
+
+  # Populate Vault (secrets/hms-creds/) with per-switch credentials
+  populateManagementSwitchCredentials: true
+
+# Sealed secrets from customizations.yaml
+sealedSecrets: []
