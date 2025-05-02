@@ -1,6 +1,6 @@
 apiVersion: v2
 name: "cray-hms-discovery"
-version: 3.1.0
+version: 3.1.1
 description: "Kubernetes resources for cray-hms-discovery"
 home: "https://github.com/Cray-HPE/hms-discovery-charts"
 sources:
@@ -8,6 +8,6 @@ sources:
 maintainers:
   - name: Hardware Management
     url: https://github.com/orgs/Cray-HPE/teams/hardware-management
-appVersion: "1.18.0"
+appVersion: "1.19.0"
 annotations:
   artifacthub.io/license: "MIT"
